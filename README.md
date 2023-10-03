@@ -11,6 +11,11 @@ Please see Mark Payne Nifi Anti-Patterns on YouTube, at around 10 minutes he exp
 
 https://www.youtube.com/watch?v=pZq0EbfDBy4
 
+WARNING - DO NOT RUN THIS AGAINST PROD WITHOUT LOTS OF TESTING
+DON'T EVEN THINK ABOUT RUNNING IT ON PROD WITHOUT LOTS OF TESTING
+
+To understand the process start with the goReduceConcurrency.sh script
+
 ToDo
 - add descrition of attached scripts
 - debug this error message parse error: Invalid numeric literal at line 1, column 31416
