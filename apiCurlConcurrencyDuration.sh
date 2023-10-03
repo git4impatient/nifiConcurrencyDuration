@@ -1,4 +1,4 @@
-curl 'http://merlin:8080/nifi-api/processors/b3c6fe43-018a-1000-ffff-ffffa523f354' \
+curl 'http://nifihost:8080/nifi-api/processors/b3c6fe43-018a-1000-ffff-ffffa523f354' \
   -X 'PUT' \
   -H 'Accept: application/json, text/javascript, */*; q=0.01' \
   -H 'Accept-Language: en-US,en;q=0.9' \
