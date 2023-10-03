@@ -1,3 +1,5 @@
+# (c) copyright 2023 Martin Lurie - sample code not supported
+
 import json
 import subprocess
 

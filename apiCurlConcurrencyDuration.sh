@@ -1,0 +1,17 @@
+curl 'http://merlin:8080/nifi-api/processors/b3c6fe43-018a-1000-ffff-ffffa523f354' \
+  -X 'PUT' \
+  -H 'Accept: application/json, text/javascript, */*; q=0.01' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/json' \
+  -H 'Cookie: __utmz=215528459.1673467353.17.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); _ga=GA1.1.719894236.1654870282; __utma=215528459.719894236.1654870282.1694182169.1694204943.55; csrftoken=tt5aJXfaKcTo6A02EcCDdfLsW76SX8Zb7Iy2dVWEOUyYPSGKpr6HiyNm3KrhyDMG; SESSION=Nzk0ZTU1MjUtNGE4ZC00NjllLWJjNGQtZTdlZTVhNGRhYzMy' \
+  -H 'DNT: 1' \
+  -H 'Origin: http://merlin:8080' \
+  -H 'Pragma: no-cache' \
+  -H 'Referer: http://merlin:8080/nifi/?processGroupId=b3c690c2-018a-1000-0000-000056dac7f1&componentIds=b3c6fe43-018a-1000-ffff-ffffa523f354' \
+  -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36' \
+  -H 'X-Requested-With: XMLHttpRequest' \
+  --data-raw '{"component":{"id":"b3c6fe43-018a-1000-ffff-ffffa523f354","name":"UpdateCounter","config":{"concurrentlySchedulableTaskCount":"11","schedulingPeriod":"0 sec","executionNode":"ALL","penaltyDuration":"30 sec","yieldDuration":"1 sec","bulletinLevel":"WARN","schedulingStrategy":"TIMER_DRIVEN","comments":"","runDurationMillis":50,"autoTerminatedRelationships":[],"retriedRelationships":[]},"state":"STOPPED"},"revision":{"clientId":"f5d1812d-018a-1000-7cfc-21d55c8c8a41","version":2},"disconnectedNodeAcknowledged":false}' \
+  --compressed \
+  --insecure

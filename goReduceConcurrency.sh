@@ -1,3 +1,5 @@
+# # (c) copyright 2023 Martin Lurie - sample code not supported
+
 # 
 echo 
 echo WARNING - YOU ARE ABOUT TO UPDATE ALL THE PROCESSORS DESCRIBED IN YOUR JSON file
