@@ -19,4 +19,5 @@ To understand the process start with the goReduceConcurrency.sh script
 ToDo
 - add descrition of attached scripts
 - debug this error message parse error: Invalid numeric literal at line 1, column 31416
+- this will not handle a process group that only has processors - it needs a sub-process group
 
