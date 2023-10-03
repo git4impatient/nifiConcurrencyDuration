@@ -1,5 +1,3 @@
-# (c) copyright 2023 Martin Lurie - sample code not supported
-
 import json
 
 # Load the provided JSON data
@@ -16,7 +14,8 @@ for process_group in data['flowContents']['processGroups']:
             'processGroup': process_group['name'],
             'processor': processor['name'],
             'instanceIdentifier': processor['instanceIdentifier'],
-            'concurrentlySchedulableTaskCount': processor['concurrentlySchedulableTaskCount']
+            'concurrentlySchedulableTaskCount': processor['concurrentlySchedulableTaskCount'],
+            'runDurationMillis': processor['runDurationMillis']
         })
 
 # Create a new JSON file with the extracted data

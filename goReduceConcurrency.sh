@@ -1,6 +1,4 @@
 # 
-# (c) copyright 2023 Martin Lurie - sample code not supported
-
 echo 
 echo WARNING - YOU ARE ABOUT TO UPDATE ALL THE PROCESSORS DESCRIBED IN YOUR JSON file
 echo 
@@ -33,5 +31,5 @@ echo JSON FILE - ARE YOU REALLY, REALLY SURE YOU WANT TO DO THIS?
 echo
 echo hit control-c to exit or hit enter to continue
 read foo
-python3 updateConcurrencyUsingVersionViaNifiAPI.py | jq
+python3 updateConcurrencyUsingVersionViaNifiAPI.py  > updateConcurrencyDuration.$$.log
 

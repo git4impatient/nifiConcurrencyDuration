@@ -1,14 +1,10 @@
-# (c) copyright 2023 Martin Lurie - sample code not supported
-
 import json
 import subprocess
 
 # Default values for variables
-# if concurrency is greater than the threshold 
-# update the processor to have a concurrency of  newconcurrency
-# and to improve performance per the video set the duration to newduration
-threshold = 9
-newconcurrency = 10
+threshold = 6
+newconcurrency = 9
+# desired duration in milliseconds
 newduration = 25
 
 # Read JSON input from 'output2.json'
@@ -21,7 +17,10 @@ for data in input_data:
     instanceIdentifier = data.get('instanceIdentifier', '')
     instance_version = data.get('version', '')
     current_concurrency = data.get('concurrentlySchedulableTaskCount', 0)
-
+    current_duration = data.get ('runDurationMillis', 0 )
+    # do not overwrite an existing non zero duration
+    if current_duration > newduration:
+      newduration = current_duration       
     # Ensure instance_version is not an empty string
     if instance_version == '':
         print(f"Error: 'version' is missing or empty in object {data}.")
@@ -29,7 +28,7 @@ for data in input_data:
         # Compare current_concurrency with the threshold and update if greater
         if current_concurrency > threshold:
             # Create the cURL command with the updated concurrency value
-            curl_command = f"""curl 'http://yourNifiHostname:8080/nifi-api/processors/{instanceIdentifier}' \
+            curl_command = f"""curl 'http://merlin:8080/nifi-api/processors/{instanceIdentifier}' \
             -X 'PUT' \
             -H 'Content-Type: application/json' \
             --data-raw '{{"component":{{"id":"{instanceIdentifier}","name":"UpdateCounter","config":{{"concurrentlySchedulableTaskCount":"{newconcurrency}","schedulingPeriod":"0 sec","executionNode":"ALL","penaltyDuration":"30 sec","yieldDuration":"1 sec","bulletinLevel":"WARN","schedulingStrategy":"TIMER_DRIVEN","comments":"","runDurationMillis":{newduration},"autoTerminatedRelationships":[],"retriedRelationships":[]}},"state":"STOPPED"}},"revision":{{"clientId":"cmdLineConcurrencyUpdater","version":{instance_version}}},"disconnectedNodeAcknowledged":false}}' \
