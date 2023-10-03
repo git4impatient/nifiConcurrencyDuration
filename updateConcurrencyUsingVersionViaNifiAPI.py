@@ -26,7 +26,7 @@ for data in input_data:
         # Compare current_concurrency with the threshold and update if greater
         if current_concurrency > threshold:
             # Create the cURL command with the updated concurrency value
-            curl_command = f"""curl 'http://merlin:8080/nifi-api/processors/{instanceIdentifier}' \
+            curl_command = f"""curl 'http://yourNifiHostname:8080/nifi-api/processors/{instanceIdentifier}' \
             -X 'PUT' \
             -H 'Content-Type: application/json' \
             --data-raw '{{"component":{{"id":"{instanceIdentifier}","name":"UpdateCounter","config":{{"concurrentlySchedulableTaskCount":"{newconcurrency}","schedulingPeriod":"0 sec","executionNode":"ALL","penaltyDuration":"30 sec","yieldDuration":"1 sec","bulletinLevel":"WARN","schedulingStrategy":"TIMER_DRIVEN","comments":"","runDurationMillis":{newduration},"autoTerminatedRelationships":[],"retriedRelationships":[]}},"state":"STOPPED"}},"revision":{{"clientId":"cmdLineConcurrencyUpdater","version":{instance_version}}},"disconnectedNodeAcknowledged":false}}' \
