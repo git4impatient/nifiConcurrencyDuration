@@ -4,7 +4,7 @@ import requests
 
 # Define the NiFi API base URL and endpoint to fetch processor details.
 #nifi_api_base_url = "http://your-nifi-server:port/nifi-api"
-nifi_api_base_url = "http://merlin:8080/nifi-api"
+nifi_api_base_url = "http://yourNifiHostname:8080/nifi-api"
 nifi_processor_endpoint = "/processors/"
 
 # Specify the input JSON file path
