@@ -4,8 +4,11 @@ import json
 import subprocess
 
 # Default values for variables
-threshold = 6
-newconcurrency = 13
+# if concurrency is greater than the threshold 
+# update the processor to have a concurrency of  newconcurrency
+# and to improve performance per the video set the duration to newduration
+threshold = 9
+newconcurrency = 10
 newduration = 25
 
 # Read JSON input from 'output2.json'
