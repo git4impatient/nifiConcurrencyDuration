@@ -9,7 +9,7 @@ nifi_api_base_url = "http://merlin:8080/nifi-api"
 nifi_processor_endpoint = "/processors/"
 
 # Specify the input JSON file path
-input_json_file = "input2.json"
+input_json_file = "output.json"
 
 # Function to fetch processor version from NiFi API
 def get_processor_version(instance_identifier):
