@@ -21,3 +21,4 @@ ToDo
 - debug this error message parse error: Invalid numeric literal at line 1, column 31416
 - this will not handle a process group that only has processors - it needs a sub-process group
 
+Many thanks to John K for all his help on this topic!
