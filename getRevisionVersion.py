@@ -5,7 +5,7 @@ import requests
 
 # Define the NiFi API base URL and endpoint to fetch processor details.
 #nifi_api_base_url = "http://your-nifi-server:port/nifi-api"
-nifi_api_base_url = "http://nifihost:8080/nifi-api"
+nifi_api_base_url = "http://merlin:8080/nifi-api"
 nifi_processor_endpoint = "/processors/"
 
 # Specify the input JSON file path
@@ -29,6 +29,7 @@ with open(input_json_file, "r") as infile:
     input_json = json.load(infile)
 
 # Iterate through input JSON, fetch versions, and add to output JSON
+numprocessed =0 
 output_json = []
 for item in input_json:
     instance_identifier = item["instanceIdentifier"]
@@ -36,6 +37,7 @@ for item in input_json:
     if version is not None:
         item["version"] = version
     output_json.append(item)
+    numprocessed =numprocessed+1 
 
 # Specify the output JSON file path
 output_json_file = "output2.json"
@@ -45,4 +47,5 @@ with open(output_json_file, "w") as outfile:
     json.dump(output_json, outfile, indent=2)
 
 print("Output JSON file created:", output_json_file)
+print("######## items processed: ", str(numprocessed) )
 

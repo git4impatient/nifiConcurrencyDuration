@@ -14,7 +14,10 @@ with open('output2.json', 'r') as json_file:
     input_data = json.load(json_file)
 
 # Iterate through each object in the list
+numprocessed=0
+numchanged=0
 for data in input_data:
+    numprocessed=numprocessed+1
     # Extract the required values from the object
     instanceIdentifier = data.get('instanceIdentifier', '')
     instance_version = data.get('version', '')
@@ -44,10 +47,14 @@ for data in input_data:
             try:
                 subprocess.run(curl_command, shell=True, check=True)
                 print(f"Updated NiFi processor for object {data}.")
+                numchanged= numchanged+1
+                
             except subprocess.CalledProcessError as e:
                 print(f"Error updating NiFi processor for object {data}: {e}")
         else:
             a=1
             # do nothing
             # print(f"Current concurrency in object {data} is not greater than the threshold. No update needed.")
+print ( "number of instanceIdentifiers processed:  " , str(numprocessed) ) 
+print ( "number of instanceIdentifiers updated:  " , str(numchanged) ) 
 

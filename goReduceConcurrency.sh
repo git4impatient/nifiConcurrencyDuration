@@ -33,5 +33,8 @@ echo JSON FILE - ARE YOU REALLY, REALLY SURE YOU WANT TO DO THIS?
 echo
 echo hit control-c to exit or hit enter to continue
 read foo
-python3 updateConcurrencyUsingVersionViaNifiAPI.py  > updateConcurrencyDuration.$$.log
+python3 updateConcurrencyUsingVersionViaNifiAPI.py  > update.$$.log 2>&1
+echo 
+echo 
+tail -2 update.$$.log
 
