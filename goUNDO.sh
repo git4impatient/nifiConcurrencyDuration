@@ -3,21 +3,26 @@
 # 
 echo 
 echo WARNING - YOU ARE ABOUT TO UPDATE ALL THE PROCESSORS DESCRIBED IN YOUR JSON file
+echo THIS SCRIPT WILL REVERT THE SETTINGS TO A PRIOR STATE.
 echo 
-echo download json from the nifi canvas and name  the file    input.json
-cp input.json saved.input.$$.json
+echo here are the last 5 saved input files, please enter the input file you 
+echo want to revert
 echo hit enter when ready
-read foo
-echo 
-echo now extracting processor id and level of concurrency from input.json
-echo about to overwrite file called output.json
-echo hit control-c and  save your current output.json if you want
-echo hit enter when ready
-read foo
-python3 listPGroupProcessorIdentifierConcurrency.py input.json
+# saved.input.136477.json
+ls -latr saved.input.*.json | tail -5 
 echo
-echo you can look at the file output.json to see what processors you are about
-echo to update
+echo please enter file name
+echo
+read revert2thisfile
+echo 
+echo about to revert to values contained in  hit cntl-c to stop
+echo $revert2thisfile
+read foo
+echo now extracting values to revert
+echo hit enter when ready
+python3 listPGroupProcessorIdentifierConcurrency.py $revert2thisfile
+echo
+echo output.json contains the values we will revert
 echo 
 echo now ready to get the current versions by calling the nifi api - update to your
 echo nifi url - look out for extra / in the url
@@ -34,7 +39,7 @@ echo JSON FILE - ARE YOU REALLY, REALLY SURE YOU WANT TO DO THIS?
 echo
 echo hit control-c to exit or hit enter to continue
 read foo
-python3 updateConcurrencyUsingVersionViaNifiAPI.py  REDUCE > update.$$.log 2>&1
+python3 updateConcurrencyUsingVersionViaNifiAPI.py UNDO  > update.$$.log 2>&1
 echo 
 echo 
 tail -2 update.$$.log

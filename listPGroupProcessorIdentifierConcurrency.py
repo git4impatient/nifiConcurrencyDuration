@@ -2,9 +2,26 @@
 
 import json
 
+import sys
+
+# Check if a file name is provided as a command line argument
+if len(sys.argv) != 2:
+    print("Usage: python read_file.py <file_name>")
+    sys.exit(1)
+
+# Get the file name from the command line argument
+file_name = sys.argv[1]
+
 # Load the provided JSON data
-with open('input.json', 'r') as input_file:
-    data = json.load(input_file)
+try:
+    # Open the file for reading
+    with open(file_name, 'r') as input_file:
+        data = json.load(input_file)
+except FileNotFoundError:
+    print(f"File '{file_name}' not found.")
+except Exception as e:
+    print(f"An error occurred: {str(e)}")
+
 
 # Initialize a list to store the extracted information
 extracted_data = []
